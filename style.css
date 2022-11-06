@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root{
+  --font-primary: font-family: 'Roboto', sans-serif;
+
+  --bg-color: #121214;
+  --bg-image: url(./assets/bg-yellow.svg);
+  --card-bg-color: #1D1C19;
+  --card-color-primary: #F7DD43;
+  --title-border-color: #746615;
+
+  font-size: 62.5%;
+}
+
+body.blue{
+  --bg-image: url(./assets/bg-blue.svg);
+  --card-bg-color: #202024;
+  --card-color-primary: #338AF3;
+  --title-border-color: #338AF3;
+}
+
+body.green{
+  --bg-image: url(./assets/bg-green.svg);
+  --card-bg-color: #1A1F1B;
+  --card-color-primary: #047C3F;
+  --title-border-color: #047C3F;
+}
+
+
+
+body * {
+  font-family: var(--font-primary);
+  
+}
+
+body{
+  background: var(--bg-color) var(--bg-image) no-repeat top center/cover;
+
+}
+
+ul{
+  list-style: none;
+}
+
+#app{
+  margin: auto;
+  padding-top: 5.2rem ;
+  width: fit-content;
+  
+}
+
+header{
+  margin-bottom: 6.3rem;
+  text-align: center;
+}
+
+#cards{
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.card{
+  background: var(--card-bg-color);
+  
+  border-bottom: 2px solid var(--card-color-primary);
+  border-radius: 6px;
+  padding: 32px 23px;
+  text-align: center;
+
+  animation: appear .2s forwards;
+  opacity: 0;
+}
+
+.card h2{
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 125%;
+  color: #F7DD43;
+
+  padding: 8px 1.6rem;
+  border: 1px solid var(--title-border-color);
+  border-radius: 6px;
+
+  display: flex;
+  gap: 1.6rem;
+  justify-content: center;
+  width: fit-content;
+  margin: auto;
+
+  margin-bottom: 5.3rem;
+}
+
+.card h2 span{
+  color: #E1E1E6;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.card ul{
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+
+  width: 270px;
+}
+
+.card ul li{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card ul li + li {
+  padding-top: 2.4rem;
+  border-top: 1px solid #323238;
+}
+
+.card ul li strong{
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 125%;
+
+  color: #E1E1E6;
+}
+
+/*Animations*/
+.card h2:hover,
+.card ul li strong:hover,
+.card ul li img:hover{
+ transform: scale(1.1);
+}
+
+.card h2,
+.card ul li strong,
+.card ul li img{
+  transition: transform 0.3s;
+}
+
+@keyframes appear{
+  0%{
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100%{
+  opacity: 1;
+  }
+}
+
+/*Responsividade*/
+
+@media (min-width: 700px){
+  #cards {
+    max-width: 670px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
